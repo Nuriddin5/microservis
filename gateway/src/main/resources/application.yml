@@ -1,0 +1,17 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: API-Gateway
+  cloud:
+    gateway:
+      routes:
+        - id: continent
+          uri: lb://continent
+          predicates:
+            - Path=/continent/**
+
+        - id: country
+          uri: lb://country
+          predicates:
+            - Path=/country/**
